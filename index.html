@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48 Valley Trail — New Construction | Acworth, GA</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAFA;
+            --text: #1A1A1A;
+            --accent: #5B7FFF;
+            --accent-light: #E8EDFF;
+            --green: #2DD4BF;
+            --purple: #A78BFA;
+            --orange: #FB923C;
+            --border: #E5E5E5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: var(--text);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, var(--accent) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, var(--green) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, var(--purple) 0%, transparent 50%);
+            opacity: 0.15;
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 0.15;
+            }
+            50% { 
+                transform: scale(1.1) rotate(5deg);
+                opacity: 0.2;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-address {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 0.95;
+        }
+
+        .hero-location {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            letter-spacing: 0.05em;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 3s ease-in-out infinite;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: white;
+            border-radius: 2px;
+            animation: scrollDot 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDot {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(12px); opacity: 0.3; }
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+            letter-spacing: -0.01em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--green));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .spec-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .spec-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(0.3);
+        }
+
+        .spec-value {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .financials {
+            background: var(--text);
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .financials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, var(--accent) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, var(--green) 0%, transparent 50%);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .financials-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .financial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .financial-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .financial-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .financial-value {
+            font-family: 'Archivo', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.01em;
+        }
+
+        .financial-description {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        .investment-highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            padding: 3.5rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(91, 127, 255, 0.3);
+        }
+
+        .investment-highlight h3 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .roi-number {
+            font-family: 'Archivo', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: white;
+            margin: 1rem 0;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .roi-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: white;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .breakdown {
+            background: var(--ivory);
+            padding: 8rem 2rem;
+        }
+
+        .breakdown-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .breakdown-section {
+            margin-bottom: 4rem;
+        }
+
+        .breakdown-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: background 0.2s ease;
+        }
+
+        .breakdown-item:hover {
+            background: rgba(201, 169, 97, 0.05);
+        }
+
+        .breakdown-item-label {
+            font-size: 1rem;
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        .breakdown-item-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .breakdown-total {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--charcoal);
+            color: var(--ivory);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breakdown-total-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .breakdown-total-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .profit-section {
+            background: linear-gradient(135deg, var(--sage) 0%, #7A8B7F 100%);
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .profit-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profit-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            padding: 10rem 2rem;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--charcoal);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: var(--ivory);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 5rem 1.5rem;
+            }
+
+            .specs-grid,
+            .financial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .breakdown-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .breakdown-total {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        .detail-note {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .highlight-positive {
+            color: #4A7C59;
+            font-weight: 600;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-item {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .timeline-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-address">48 Valley Trail</h1>
+            <p class="hero-location">Acworth, Georgia 30101</p>
+            <p class="hero-tagline">Luxury New Construction Investment Opportunity</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Property Overview</h2>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <div class="spec-icon">🏡</div>
+                <div class="spec-value">1,880</div>
+                <div class="spec-label">Square Feet</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">💰</div>
+                <div class="spec-value">$369K</div>
+                <div class="spec-label">Estimated Value</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">🏗️</div>
+                <div class="spec-value">$125</div>
+                <div class="spec-label">Per SF Construction</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">📅</div>
+                <div class="spec-value">12</div>
+                <div class="spec-label">Month Timeline</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="financials">
+        <div class="financials-container">
+            <h2 class="section-title" style="color: var(--ivory);">Investment Details</h2>
+            
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <div class="financial-label">Land Acquisition</div>
+                    <div class="financial-value">$30,000</div>
+                    <div class="financial-description">Prime location in Acworth's growing market</div>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-label">Construction Budget</div>
+                    <div class="financial-value">$235,000</div>
+                    <div class="financial-description">1,880 SF at $125 per square foot</div>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-label">Total Project Cost</div>
+                    <div class="financial-value">$287,386</div>
+                    <div class="financial-description">All-inclusive development costs</div>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-label">Cash Investment Required</div>
+                    <div class="financial-value">$59,477</div>
+                    <div class="financial-description">20% down payment + utilities & insurance</div>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-label">Construction Loan</div>
+                    <div class="financial-value">$229,909</div>
+                    <div class="financial-description">12% interest rate, 3% origination fee</div>
+                </div>
+                
+                <div class="financial-card">
+                    <div class="financial-label">Interest Reserve</div>
+                    <div class="financial-value">$13,489</div>
+                    <div class="financial-description">12-month construction period</div>
+                </div>
+            </div>
+
+            <div class="investment-highlight">
+                <h3>Cash on Cash Return</h3>
+                <div class="roi-number">110.58%</div>
+                <div class="roi-label">Annualized Return</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="breakdown">
+        <div class="breakdown-container">
+            <h2 class="section-title">Project Breakdown</h2>
+            
+            <div class="breakdown-section">
+                <h3>Development Costs</h3>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Land Purchase Price</span>
+                    <span class="breakdown-item-value">$30,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Construction Costs (1,880 SF × $125)</span>
+                    <span class="breakdown-item-value">$235,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Purchase Closing Costs</span>
+                    <span class="breakdown-item-value">$2,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Loan Origination Fee (3%)</span>
+                    <span class="breakdown-item-value">$6,897</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Interest Reserve (12% × 12 months)</span>
+                    <span class="breakdown-item-value">$13,489</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Utilities & Insurance</span>
+                    <span class="breakdown-item-value">$2,000</span>
+                </div>
+                <div class="breakdown-total">
+                    <span class="breakdown-total-label">Total Project Costs</span>
+                    <span class="breakdown-total-value">$287,386</span>
+                </div>
+            </div>
+
+            <div class="breakdown-section">
+                <h3>Financing Structure</h3>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Construction Loan Amount</span>
+                    <span class="breakdown-item-value">$229,909</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Down Payment (20%)</span>
+                    <span class="breakdown-item-value">$57,477</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Utilities & Insurance (Cash)</span>
+                    <span class="breakdown-item-value">$2,000</span>
+                </div>
+                <div class="breakdown-total">
+                    <span class="breakdown-total-label">Total Cash Required</span>
+                    <span class="breakdown-total-value">$59,477</span>
+                </div>
+            </div>
+
+            <div class="breakdown-section">
+                <h3>Exit Strategy</h3>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Estimated Sale Price</span>
+                    <span class="breakdown-item-value">$369,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Selling Costs (7%)</span>
+                    <span class="breakdown-item-value">($25,830)</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item-label">Loan Payoff</span>
+                    <span class="breakdown-item-value">($229,909)</span>
+                </div>
+                <div class="breakdown-total">
+                    <span class="breakdown-total-label">Net Sales Proceeds</span>
+                    <span class="breakdown-total-value">$113,261</span>
+                </div>
+            </div>
+
+            <div class="profit-section">
+                <h3>Projected Net Profit</h3>
+                <div class="profit-amount">$53,784</div>
+                <p style="font-size: 1.1rem; opacity: 0.95;">On a total cash investment of $59,477</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--ivory);">
+        <h2 class="section-title">Project Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-value">12</div>
+                <div class="timeline-label">Month Build</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-value">110.58%</div>
+                <div class="timeline-label">Annual Return</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-value">7%</div>
+                <div class="timeline-label">Selling Costs</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Investment Opportunity</h2>
+            <p class="cta-description">
+                This new construction project at 48 Valley Trail represents an exceptional opportunity 
+                in Acworth's thriving real estate market. With a projected net profit of over $53,000 
+                and a cash-on-cash return of 110.58%, this development offers compelling returns 
+                in just 12 months.
+            </p>
+            <a href="#contact" class="cta-button">Request Information</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>48 Valley Trail, Acworth, GA 30101 | Investment Pro Forma</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2026 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.spec-card, .financial-card, .breakdown-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
