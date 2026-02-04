@@ -343,8 +343,8 @@
         }
 
         .breakdown {
-            background: var(--ivory);
-            padding: 8rem 2rem;
+            background: white;
+            padding: 6rem 2rem;
         }
 
         .breakdown-container {
@@ -357,133 +357,141 @@
         }
 
         .breakdown-section h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
-            color: var(--charcoal);
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--gold);
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .breakdown-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
             transition: background 0.2s ease;
         }
 
         .breakdown-item:hover {
-            background: rgba(201, 169, 97, 0.05);
+            background: rgba(91, 127, 255, 0.02);
         }
 
         .breakdown-item-label {
-            font-size: 1rem;
-            color: var(--slate);
-            font-weight: 500;
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 400;
         }
 
         .breakdown-item-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.3rem;
             font-weight: 600;
-            color: var(--charcoal);
+            color: var(--text);
+            letter-spacing: -0.01em;
         }
 
         .breakdown-total {
             margin-top: 2rem;
             padding: 2rem;
-            background: var(--charcoal);
-            color: var(--ivory);
+            background: var(--text);
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-radius: 12px;
         }
 
         .breakdown-total-label {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
             font-weight: 600;
         }
 
         .breakdown-total-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-family: 'Archivo', sans-serif;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--accent);
+            letter-spacing: -0.01em;
         }
 
         .profit-section {
-            background: linear-gradient(135deg, var(--sage) 0%, #7A8B7F 100%);
+            background: var(--text);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3.5rem 2rem;
             margin-top: 3rem;
             text-align: center;
+            border-radius: 16px;
         }
 
         .profit-section h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .profit-amount {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.5rem;
+            font-family: 'Archivo', sans-serif;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: var(--green);
         }
 
         .cta-section {
-            padding: 10rem 2rem;
-            background: var(--cream);
+            padding: 8rem 2rem;
+            background: var(--bg);
             text-align: center;
         }
 
         .cta-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .cta-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 2rem;
-            color: var(--charcoal);
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .cta-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--slate);
+            color: #666;
             margin-bottom: 3rem;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1.5rem 4rem;
-            background: var(--gold);
-            color: var(--charcoal);
+            padding: 1.25rem 3rem;
+            background: var(--accent);
+            color: white;
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            box-shadow: 0 8px 24px rgba(91, 127, 255, 0.25);
         }
 
         .cta-button:hover {
-            background: var(--charcoal);
-            color: var(--gold);
+            background: var(--text);
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+            box-shadow: 0 12px 32px rgba(91, 127, 255, 0.35);
         }
 
         footer {
-            background: var(--charcoal);
-            color: var(--ivory);
+            background: var(--text);
+            color: white;
             padding: 3rem 2rem;
             text-align: center;
         }
@@ -491,12 +499,12 @@
         footer p {
             font-size: 0.9rem;
             opacity: 0.7;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
         }
 
         @media (max-width: 768px) {
             .section {
-                padding: 5rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
 
             .specs-grid,
@@ -519,13 +527,13 @@
 
         .detail-note {
             font-size: 0.85rem;
-            color: var(--slate);
+            color: #666;
             font-style: italic;
             margin-top: 0.5rem;
         }
 
         .highlight-positive {
-            color: #4A7C59;
+            color: var(--green);
             font-weight: 600;
         }
 
@@ -533,32 +541,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .timeline-item {
             text-align: center;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             background: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .timeline-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--gold);
+            font-family: 'Archivo', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.01em;
         }
 
         .timeline-label {
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--slate);
+            letter-spacing: 0.08em;
+            color: #666;
             margin-top: 0.5rem;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -600,7 +617,7 @@
 
     <section class="financials">
         <div class="financials-container">
-            <h2 class="section-title" style="color: var(--ivory);">Investment Details</h2>
+            <h2 class="section-title" style="color: white;">Investment Details</h2>
             
             <div class="financial-grid">
                 <div class="financial-card">
@@ -732,7 +749,7 @@
         </div>
     </section>
 
-    <section class="section" style="background: var(--ivory);">
+    <section class="section" style="background: white;">
         <h2 class="section-title">Project Timeline</h2>
         <div class="timeline">
             <div class="timeline-item">
